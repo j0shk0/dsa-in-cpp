@@ -4,3 +4,6 @@ main.cpp
 .DS_Store
 *.txt
 *.dSYM
+*/build.sh
+*/.clang-format
+.idea

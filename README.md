@@ -34,8 +34,8 @@ This Repository is indended to be a reference for common data structures and alg
 
 ### other-algorithms
 
+- Matrix Product utilizing `std::experimental::simd` and `OpenMP`.
 - Binary Search
-- Matrix Product 
 
 ## Contribution
 

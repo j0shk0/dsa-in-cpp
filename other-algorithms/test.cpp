@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 
+#include "binary_search.hpp"
 #include "matrix-calc.hpp"
 
 TEST_CASE("Test Transpose") {
@@ -60,4 +61,26 @@ TEST_CASE("Test Matrix Product") {
             REQUIRE(output2[i][j] == mat2Valid[i][j]);
         }
     }
+}
+
+TEST_CASE("Test Binary Search") {
+    std::vector vecTest{1, 2, 3, 4, 5, 6, 7, 8, 9};
+    const int index0 = binary_search(vecTest, 1);
+    const int index1 = binary_search(vecTest, 2);
+    const int index2 = binary_search(vecTest, 3);
+    const int index3 = binary_search(vecTest, 4);
+    const int index4 = binary_search(vecTest, 5);
+    const int index5 = binary_search(vecTest, 6);
+    const int index6 = binary_search(vecTest, 7);
+    const int index7 = binary_search(vecTest, 8);
+    const int index8 = binary_search(vecTest, 9);
+    REQUIRE(index0 == 0);
+    REQUIRE(index1 == 1);
+    REQUIRE(index2== 2);
+    REQUIRE(index3 == 3);
+    REQUIRE(index4 == 4);
+    REQUIRE(index5 == 5);
+    REQUIRE(index6 == 6);
+    REQUIRE(index7 == 7);
+    REQUIRE(index8 == 8);
 }

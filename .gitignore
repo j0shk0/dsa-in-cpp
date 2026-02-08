@@ -5,5 +5,5 @@ main.cpp
 *.txt
 *.dSYM
 */build.sh
-*/.clang-format
-.idea
+*.clang-format
+*.idea

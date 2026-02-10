@@ -6,8 +6,8 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-project(matrix-calc VERSION 1.0
-    DESCRIPTION "Tests for matrix-calc."
+project(other-algorithms VERSION 1.0
+    DESCRIPTION "Tests for other-algorithms."
                   LANGUAGES CXX)
 
 find_package(Catch2 3 REQUIRED)

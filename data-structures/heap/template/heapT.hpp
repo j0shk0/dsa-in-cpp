@@ -1,7 +1,6 @@
-#ifndef HEAP_H
-#define HEAP_H
+#ifndef HEAPT_H
+#define HEAPT_H
 
-#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -12,16 +11,16 @@ concept heapable = requires(T t) {
 };
 
 template<heapable T>
-class Heap {
-	
+class HeapT {
+
 	// Declaring the typical vector to store the values of the Heap.
 	vector<T> data_array;
 	void repair_up(int index) {
 		// The vector size must be bigger than 1 (otherwise there is no need to assign a parent to the vertex).
 		// The index must be above 0 as we can't call repair_up on the root of the heap.
 		// The index must be below data_array.size() otherwise there will be undefined behavior as there is 1-Indexing.
-		if ((data_array.size() > 1) && 
-				(index > 0) && 
+		if ((data_array.size() > 1) &&
+				(index > 0) &&
 				(index <= data_array.size() - 1)) {
 
 			// The index must be increased by one for the calculation of the father vertex.
@@ -91,36 +90,7 @@ class Heap {
 
 	public:
 	
-	Heap(vector<T> start_vector) : data_array(start_vector) {}
-
-	// Destructor
-	~Heap() {
-		// When the Heap is destructed the memory of the arrays must be released.
-		data_array.clear();
-	}
-
-	// Copy Constructor
-	Heap(const Heap& other) : data_array( other.data_array ) {}
-
-	// Copy Assignment Operator
-	Heap&  operator=(const Heap& other) {
-		if (this == &other) return *this;
-		data_array = other.data_array;
-		return *this;
-	}
-
-	// Move Constructor
-	Heap(Heap&& other) noexcept : data_array( other.data_array ) {
-		other.data_array.clear();
-	}
-
-	// Move Assignment Operator
-	Heap& operator=(Heap&& other) noexcept {
-		if (this == &other)  return *this;
-		data_array = other.data_array;
-		other.data_array.clear();
-		return *this;
-	}
+	HeapT(vector<T> start_vector) : data_array(start_vector) {}
 
 	vector<T> read() const {
 		return data_array;

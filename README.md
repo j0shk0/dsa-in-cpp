@@ -13,7 +13,21 @@ A collection of common data structures and algorithms that I implemented.
 
 ## About
 
-This Repository is indended to be a reference for common data structures and algorithms in CS.
+This Repository is intended to be a reference for common data structures and algorithms in CS.
+
+_If you are new to C++:_ Make sure to install `cmake` and get the GNU Compiler Collection (This Projects uses `g++`).
+Each "collection" of Data Structures and/or Algorithms has its own `CMakeList.txt`. You can execute the test by running the
+following commands in your `bash` shell assuming you are using a UNIX based Operating System (e.g. Linux Distribution or MacOS)
+and you have navigated in the respective folder
+
+```bash
+mkdir -p build
+cd build
+cmake ..
+make
+./test
+```
+If you are done you can remove the folder with `rm -rf build`.
 
 ### data-structures
 

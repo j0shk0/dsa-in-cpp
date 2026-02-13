@@ -2,7 +2,7 @@
 #include <vector>
 
 template<typename T>
-requires std::is_arithmetic_v<T>
+requires std::three_way_comparable<T> && std::is_swappable_v<T>
 std::vector<T> bubble_sort(std::vector<T> unsorted_v) {
     // upper_bound to not iterate beyond the vector.
     T* upper_bound = &unsorted_v.back();

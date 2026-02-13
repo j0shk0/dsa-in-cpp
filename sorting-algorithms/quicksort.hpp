@@ -5,7 +5,7 @@
 using namespace std;
 
 template <typename T>
-requires std::is_arithmetic_v<T>
+requires std::three_way_comparable<T> && std::swappable<T>
 vector<T> quicksort(vector<T> v) {
     if (v.size() == 1 || v.empty()) {
             return v;
@@ -14,8 +14,8 @@ vector<T> quicksort(vector<T> v) {
             swap(v[0], v[1]);
             return v;
         }
-    T l = 0;
-    T r = v.size() - 2;
+    int l = 0;
+    int r = v.size() - 2;
     T pivot = v.back();
 
     while(l < r) {

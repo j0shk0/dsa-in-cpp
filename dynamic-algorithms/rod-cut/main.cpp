@@ -21,9 +21,10 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+#include <array>
 #include <iostream>
 #include <limits>
-#include <array>
+#include <vector>
 
 // An LUT for the prices. 1-indexing is used here.
 // Index of the Array is the revenue per length of the rod.
@@ -31,18 +32,38 @@ constexpr std::array P = {1, 5, 8, 9, 10, 17, 20, 24, 30};
 // Length of the rod in question.
 constexpr int N = 4;
 
+// Recursive version.
 template<typename T>
-int cut_rod(const T& p, int n) {
-  if (n == 0) return 0;
+int cut_rod(const T& p, const int n) {
+    if (n == 0) return 0;
 
-  int q = -std::numeric_limits<int>::infinity();
-  for (int i = 1; i <= n; ++i) {
-    q = std::max(q, p[i - 1] + cut_rod(p, n - i));
-  }
-  return q;
+    int q = -std::numeric_limits<int>::infinity();
+    for (int i = 1; i <= n; ++i) {
+        q = std::max(q, p[i - 1] + cut_rod(p, n - i));
+    }
+    return q;
 };
 
-int main() {  
-  auto opt = cut_rod(P, N);
-  std::cout << "Optional Solution for the rod cutting problem of size " << N << " is " << opt << std::endl;
+// Bottom-Up version.
+template<typename T>
+int cut_rod_ub(const T& p, const int n) {
+    std::vector<int> r{0};
+    if (n == 0) return 0;
+
+    int q = -std::numeric_limits<int>::infinity();
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= i; ++j) {
+            q = std::max(q, p[j - 1] + r[i - j]);
+        }
+        r.push_back(q);
+    }
+    return q;
+};
+
+int main() {
+    auto opt_r = cut_rod(P, N);
+    auto opt_d = cut_rod_ub(P, N);
+    std::cout << "Optional Solution for the (recursive) rod cutting problem of size " << N << " is " << opt_r
+              << std::endl;
+    std::cout << "Optional Solution for the (dynamic) rod cutting problem of size " << N << " is " << opt_d << std::endl;
 }

@@ -46,6 +46,12 @@ If you are done you can remove the folder with `rm -rf build`.
 - Merge Sort
 - Quick Sort
 
+### dynamic-algorithms
+
+- Rod-Cut from Cormen, Leiserson, Rivest, Stein - "Introduction to Algorithms (third edition)". 
+
+> This is currently the inefficient variant, I will add the efficient variant soon.
+
 ### other-algorithms
 
 - Matrix Product utilizing `std::experimental::simd` and `OpenMP`.

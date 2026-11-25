@@ -49,6 +49,8 @@ If you are done you can remove the folder with `rm -rf build`.
 ### dynamic-algorithms
 
 - Rod-Cut from Cormen, Leiserson, Rivest, Stein - "Introduction to Algorithms (third edition)". 
+    - Recursive version with bad (exponential) runtime.
+    - Enhanced dynamic version with good (polynomial) runtime.
 
 > This is currently the inefficient variant, I will add the efficient variant soon.
 
